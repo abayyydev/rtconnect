@@ -45,6 +45,8 @@ jobs:
 
       - name: Build Android APK
         working-directory: ./android
+        env:
+          GRADLE_OPTS: "-Dorg.gradle.internal.http.socketTimeout=120000 -Dorg.gradle.internal.http.connectionTimeout=120000"
         run: ./gradlew assembleDebug
 
       - name: Upload APK Artifact
